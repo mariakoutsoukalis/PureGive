@@ -36,13 +36,15 @@ function OrganizationsPage() {
     setSelectedCause(cause);
   };
 
-  const filteredOrganizations = selectedCause
-    ? allOrganizations.filter(org => 
-        causesWithOrgs.some(causeObj => 
-          causeObj.cause === selectedCause && causeObj.orgs.includes(org[1])
-        )
-      )
-    : allOrganizations;
+  const filteredOrganizations = allOrganizations.filter(org => {
+    const matchesCause = selectedCause
+      ? causesWithOrgs.some(causeObj => 
+          causeObj.cause === selectedCause && causeObj.orgs.includes(org[1]))
+      : true;
+    const matchesSearch = org[1].toLowerCase().includes(search.toLowerCase());
+
+    return matchesCause && matchesSearch;
+  });
 
   return (
     <>
