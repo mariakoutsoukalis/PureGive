@@ -3,27 +3,46 @@ import OrganizationsList from "@/components/OrganizationsList";
 import NavBar2 from '../components/NavBar2';
 import Footer from '../components/Footer';
 
-const URL = 'http://127.0.0.1:5000/organizations'
+const URL_ORG = 'http://127.0.0.1:5000/organizations';
+const URL_CAUSES = 'http://127.0.0.1:5000/organizations/cause';
 
 function OrganizationsPage() {
-  const [organizations, setOrganizations] = useState([]);
+  const [allOrganizations, setAllOrganizations] = useState([]);
+  const [causesWithOrgs, setCausesWithOrgs] = useState([]);
   const [search, setSearch] = useState('');
-  const [selectedCause, setSelectedCause] = useState(''); // State to track the selected cause
+  const [selectedCause, setSelectedCause] = useState('');
 
   useEffect(() => {
-    fetch(URL)
+    fetch(URL_ORG)
       .then(res => res.json())
-      .then(data => setOrganizations(data));
+      .then(data => setAllOrganizations(data));
+
+    fetch(URL_CAUSES)
+      .then(response => response.json())
+      .then(data => {
+        const causesMap = new Map();
+        data.forEach(item => {
+          if (!causesMap.has(item.cause_name)) {
+            causesMap.set(item.cause_name, new Set());
+          }
+          causesMap.get(item.cause_name).add(item.organization_name);
+        });
+        setCausesWithOrgs(Array.from(causesMap, ([cause, orgs]) => ({ cause, orgs: Array.from(orgs) })));
+      })
+      .catch(error => console.error('Error fetching causes:', error));
   }, []);
 
   const handleCauseChange = (cause) => {
     setSelectedCause(cause);
   };
 
-  const filteredOrganizations = organizations.filter(organization =>
-    (selectedCause === '' || organization.cause === selectedCause) &&
-    organization[1] && organization[1].toLowerCase().includes(search.toLowerCase())
-  );
+  const filteredOrganizations = selectedCause
+    ? allOrganizations.filter(org => 
+        causesWithOrgs.some(causeObj => 
+          causeObj.cause === selectedCause && causeObj.orgs.includes(org[1])
+        )
+      )
+    : allOrganizations;
 
   return (
     <>
@@ -38,14 +57,6 @@ function OrganizationsPage() {
       <Footer />
     </>
   );
-}
-
-// This function runs on the server-side and fetches initial data
-export async function getServerSideProps() {
-  const res = await fetch('http://127.0.0.1:5000/organizations');
-  const initialOrganizations = await res.json();
-
-  return { props: { initialOrganizations } };
 }
 
 export default OrganizationsPage;
