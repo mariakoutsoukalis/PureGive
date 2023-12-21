@@ -1,0 +1,151 @@
+.fullscreenVideoWrap {
+    position: fixed; /* Changed from absolute to fixed */
+    top: 0;
+    left: 0;
+    right: 0; /* Ensures it stretches across the whole screen horizontally */
+    bottom: 0; /* Ensures it stretches across the whole screen vertically */
+    overflow: hidden; /* Prevents any scrolling due to overflow */
+    z-index: -1; /* Keeps it behind other content */
+}
+
+.video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 10%; /* Adjusts the position of the video */
+    transform: translateY(-15%);
+}
+
+@media (max-width: 768px) {
+    .fullscreenVideoWrap {
+        /* Adjust styles for narrower viewports */
+        /* For example, if you want to ensure no cropping at narrower widths */
+        height: auto;
+        width: auto; /* Adjust height automatically */
+    }
+
+    .video {
+        /* Adjust video styles for narrower viewports */
+        object-fit: cover; /* This will prevent cropping but may introduce letterboxing */
+    }
+}
+
+.content {
+    position: fixed;
+    top: 39%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the element */
+    color: white;
+    background-color: #26272b3c;
+    font-size: .8em;
+    padding: 7px;
+    opacity: 0;
+    animation: slideIn .8s ease forwards;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5); /* Example starting state */
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1); /* End state, centered */
+    }
+}
+
+/* Media query for screens smaller than 600px */
+@media (max-width: 600px) {
+    .content {
+        left: 43%;
+
+    }
+}
+
+@keyframes swirlIn {
+    from {
+        transform: scale(0) rotate(0deg);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1) rotate(360deg);
+        opacity: 1;
+    }
+}
+
+.link {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 1.5em;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    animation: appear 2s ease-out forwards;
+    animation-delay: 2s; /* Delay to match end of swirlInText animation */
+}
+
+@keyframes appear {
+    to {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+.link:hover {
+    color: white;
+    text-decoration: underline;
+    transform: scale(1.05); /* Slightly increase size on hover */
+    animation: ripple 1.5s infinite linear;
+}
+
+.link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    box-shadow: 0 0.1em white, 0 0.2em white;
+}
+
+@keyframes ripple {
+    0%, 100% {
+        transform: translateY(0) translateX(0);
+    }
+    10%, 90% {
+        transform: translateY(-0.1em) translateX(-0.1em);
+    }
+    20%, 80% {
+        transform: translateY(0.1em) translateX(0.1em);
+    }
+    30%, 70% {
+        transform: translateY(-0.15em) translateX(-0.15em);
+    }
+    40%, 60% {
+        transform: translateY(0.15em) translateX(0.15em);
+    }
+    50% {
+        transform: translateY(0) translateX(0);
+    }
+}
+
+
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.1);
+    }
+    50% {
+        transform: scale(1);
+    }
+    75% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}

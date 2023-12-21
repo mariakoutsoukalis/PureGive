@@ -1,0 +1,116 @@
+.fullBackgroundImageContainer {
+    min-height: 100%;
+    width: 100%; /* Adjust the width as needed */
+    margin: auto; /* Centers the container both horizontally and vertically */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Aligns children vertically center */
+    align-items: center; /* Aligns children horizontally center */
+    background-image: url('/pexels-diva-plavalaguna-6147357.jpg');
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+
+.header {
+    background-color: rgba(108, 51, 51, 0.535); /* blue-600 equivalent */
+    color: white;
+    padding: 16px;
+    text-align: center;
+}
+
+.headerTitle {
+    font-size: 1.875rem; /* text-3xl equivalent */
+    font-weight: bold;
+}
+
+
+
+.mainContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    animation: littleWiggle .3s ease-in-out 0.6s; /* Delay of 0.8s */
+}
+
+.aboutSection {
+    background-color: rgba(108, 51, 51, 0.535); /* burgundy */
+    color: white;
+    padding: 50px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+    max-width: 900px; /* Allow horizontal expansion */
+    opacity: 0; /* Start invisible */
+    transition: opacity 1s ease-in-out;
+    font-size: 1.5rem; /* Larger font size */
+    line-height: 2; /* Double line spacing */
+    white-space: normal; /* Ensures text wraps normally */
+    word-break: break-word; /* Breaks words at the end of the line */
+    overflow: auto;
+    animation: slideIn 0.1s ease forwards;
+}
+
+
+
+.aboutTitle {
+    font-size: 2.2rem; /* text-2xl equivalent */
+    font-weight: 600; /* font-semibold */
+}
+
+@keyframes littleWiggle {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    25%, 75% {
+        transform: rotate(-3deg); /* Increase rotation for emphasis */
+    }
+    50% {
+        transform: rotate(3deg); /* Increase rotation for emphasis */
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%); /* Start above the view */
+        opacity: 1;
+    }
+    to {
+        transform: translateY(0); /* End at its original position */
+        opacity: 1;
+    }
+}
+
+.aboutSection {
+    animation: slideIn .33s ease forwards;
+}
+
+
+
+.secondaryText {
+    color: #4a5568; /* gray-700 */
+}
+
+.footer {
+    background-color: rgba(108, 51, 51, 0.535); /* gray-800 */
+    color: white;
+    padding: 16px;
+    text-align: center;
+}
+
+.fullBackgroundImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}

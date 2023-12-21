@@ -5,3 +5,4 @@ seed.py
 Pipfile.lock
 .venv/
 __pycache__/
+/.DS_Store
