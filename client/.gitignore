@@ -1,6 +1,4 @@
-# https://help.github.com/articles/ignoring-files/ more about ignoring files.
-
-README.md
+client/README.md
 
 # dependencies
 /node_modules
@@ -38,13 +36,14 @@ yarn-error.log*
 next-env.d.ts
 
 # directories
-src/styles/
-src/hooks/
-public/
-src/components/footer
-src/pages/about
-src/pages/api
-src/pages/cause
-src/pages/demo
-src/pages/login
-src/pages/logout
+client/src/styles/
+client/src/hooks/
+client/public/
+client/src/components/footer
+client/src/pages/about
+client/src/pages/api
+client/src/pages/cause
+client/src/pages/demo
+client/src/pages/login
+client/src/pages/logout
+client/public/pexels-google-deepmind-18069166 (Original).mp4
