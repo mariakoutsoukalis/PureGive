@@ -36,13 +36,13 @@ yarn-error.log*
 next-env.d.ts
 
 # directories
-client/src/styles/
-client/src/hooks/
-client/public/
-client/src/components/footer
-client/src/pages/about
-client/src/pages/api
-client/src/pages/cause
-client/src/pages/demo
-client/src/pages/login
-client/src/pages/logout
+src/styles/
+src/hooks/
+public/
+src/components/footer
+src/pages/about
+src/pages/api
+src/pages/cause
+src/pages/demo
+src/pages/login
+src/pages/logout
