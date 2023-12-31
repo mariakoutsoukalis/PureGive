@@ -25,7 +25,7 @@ const NavBar = ({ totalDonations }) => {
                 <Link href="/profile" className={styles.link}> 
                     <span className={`${styles.link} ${styles.hoverEffect}`}>Profile</span>
                 </Link>
-                <Link href="/logout.js" className={styles.link}>
+                <Link href="/logout" className={styles.link}>
                     <span className={`${styles.link} ${styles.hoverEffect} ${styles.logout}` }>
                     Logout <FontAwesomeIcon icon={faSignInAlt} /> {/* Use FontAwesomeIcon */}
                     </span>

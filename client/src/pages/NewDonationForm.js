@@ -4,30 +4,20 @@ import { useRouter } from 'next/router';  // Import useRouter from Next.js
 function NewDonationForm({ organizationId, donorId }) {
   const [formData, setFormData] = useState({
     amount: '',
-    donor_id: donorId,
-    organization_id: organizationId
+    donor_id: '1',
+    organization_id: '1'
   });
   const router = useRouter();  // Create an instance of useRouter
 
   const handleAddDonation = async (donationData) => {
     try {
-      const response = await fetch('http://127.0.0.1:5000//new/donations', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(donationData)
-      });
-
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
+      const response = await fetch('http://127.0.0.1:5000//new/donation', { /* ... */ });
+      if (response.ok) {
+        // Emit a custom event after successful donation submission
+        document.dispatchEvent(new CustomEvent('donationSubmitted'));
       }
-
-      // Redirect to the dashboard after successful donation
-      router.push('/dashboard');  // Replace '/dashboard' with your dashboard route
     } catch (error) {
-      console.error('Donation failed:', error);
-      // Handle the error (e.g., show an error message)
+      // Handle errors
     }
   };
 

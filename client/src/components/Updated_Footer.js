@@ -64,7 +64,7 @@ const Footer = () => {
       </a>
     </li>
     <li>
-      <a className={styles.linkedin} href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+      <a className={styles.linkedin} href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile" target="_blank" rel="noopener noreferrer">
         <FontAwesomeIcon icon={faLinkedin} />
       </a>
     </li>   

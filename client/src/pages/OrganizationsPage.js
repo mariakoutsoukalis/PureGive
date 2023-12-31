@@ -6,8 +6,8 @@ import Footer from '../components/Footer';
 const URL_ORG = 'http://127.0.0.1:5000/organizations';
 const URL_CAUSES = 'http://127.0.0.1:5000/organizations/cause';
 
-function OrganizationsPage() {
-  const [allOrganizations, setAllOrganizations] = useState([]);
+function OrganizationsPage({ initialOrganizations }) {
+  const [allOrganizations, setAllOrganizations] = useState(initialOrganizations);
   const [causesWithOrgs, setCausesWithOrgs] = useState([]);
   const [search, setSearch] = useState('');
   const [selectedCause, setSelectedCause] = useState('');
@@ -59,6 +59,13 @@ function OrganizationsPage() {
       <Footer />
     </>
   );
+}
+
+export async function getServerSideProps() {
+  const res = await fetch(URL_ORG);
+  const initialOrganizations = await res.json();
+
+  return { props: { initialOrganizations } };
 }
 
 export default OrganizationsPage;

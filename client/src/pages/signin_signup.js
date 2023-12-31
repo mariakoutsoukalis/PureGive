@@ -8,12 +8,6 @@ const SignInSignUp = () => {
     // Handle the login form data here (e.g., send to an API)
   };
 
-  // Function to handle register form submission
-  const handleRegisterSubmit = (event) => {
-    event.preventDefault();
-    // Handle the register form data here (e.g., send to an API)
-  };
-
   return (
     
     <div className="forms-container">

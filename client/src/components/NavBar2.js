@@ -25,7 +25,7 @@ const NavBar2 = ({ search, setSearch, onCauseChange }) => {
                     <span className={`${styles.link2} ${styles.hoverEffect}`}>Profile</span>
                 </Link>
                 
-                <Link href="/logout.js">
+                <Link href="/logout">
                     <span className={`${styles.link2} ${styles.hoverEffect} ${styles.logout}`}>
                         Logout <FontAwesomeIcon icon={faSignInAlt} />
                     </span>

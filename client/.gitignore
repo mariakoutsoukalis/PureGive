@@ -1,4 +1,6 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# https://help.github.com/articles/ignoring-files/ more about ignoring files.
+
+README.md
 
 # dependencies
 /node_modules
@@ -34,3 +36,15 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# directories
+src/styles/
+src/hooks/
+public/
+src/components/footer
+src/pages/about
+src/pages/api
+src/pages/cause
+src/pages/demo
+src/pages/login
+src/pages/logout
