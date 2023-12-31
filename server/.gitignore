@@ -1,0 +1,8 @@
+docker-compose.yml
+postgres_config.py
+dictionaries.py
+seed.py
+Pipfile.lock
+.venv/
+__pycache__/
+/.DS_Store

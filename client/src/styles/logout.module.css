@@ -1,0 +1,15 @@
+.imageContainer {
+    width: 100vw;        /* Full viewport width */
+    height: 100vh;       /* Full viewport height */
+    overflow: hidden;    /* Cut off any overflow */
+    position: fixed;     /* Fixed position */
+    top: 0;              /* Align to the top */
+    left: 0;             /* Align to the left */
+    z-index: -1;         /* Ensure it's behind other content */
+}
+
+.imageContainer img {
+    width: 100%;        /* Fill the container width */
+    height: 100%;       /* Fill the container height */
+    object-fit: cover;  /* Maintain aspect ratio without stretching */
+}

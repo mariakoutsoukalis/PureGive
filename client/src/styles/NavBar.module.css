@@ -1,0 +1,177 @@
+/* components/NavBar.module.css */
+.navBar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #26272b; /* Solid background for consistency */
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    z-index: 2; /* Ensure the NavBar is above the content */
+
+}
+
+.navBar2 {
+    
+    position: fixed; /* Fixed position relative to the viewport */
+    top: 0; /* Align to the top of the viewport */
+    left: 0;
+    right: 0;
+    background-color: #26272b; /* Slightly transparent background */
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2; /* High z-index to ensure it's above other content */
+}
+
+.navBar3 {
+    
+    position: fixed; /* Fixed position relative to the viewport */
+    top: 0; /* Align to the top of the viewport */
+    left: 0;
+    right: 0;
+    background-color: #26272b; /* Slightly transparent background */
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2; /* High z-index to ensure it's above other content */
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.navBar3 .title {
+    font-family: 'Open Sans', sans-serif; /* Corrected font-family declaration */
+    font-size: 20px; /* A standard size for readability */
+    letter-spacing: 1px; /* Adds some spacing between letters for clarity */
+    margin: 0 15px; /* Margin for spacing around the title */
+}
+
+
+
+.center2 {
+    display:flex;
+    gap: 60px; /* 60px gap between each item */
+}
+
+
+.left, .right {
+    transition: transform 0.3s ease;
+    font-size: .5em;
+}
+
+.left, .right, .center {
+    flex: 1; /* Each section takes equal space */
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+}
+
+
+
+.link {
+    color: white; /* Match the color of the text */
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 1.5em;
+    display: inline-block; /* Required for transform */
+    animation: waveEffect 0.5s ease-in-out;
+}
+
+.link2 {
+    color: white; /* Match the color of the text */
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 2em;
+    display: inline-block; /* Required for transform */
+    animation: waveEffect 0.5s ease-in-out;
+}
+
+.logout {
+    justify-self: end;
+    /* margin-left: 80%; */
+}
+
+.link:hover, .link2:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+.link a {
+    color: white; /* Set the text color */
+    text-decoration: none; /* Remove underline */
+}
+
+.totalDonationsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: .9em;
+}
+
+.totalDonations {
+    display: block;
+    font-size: 3.0em;
+    font-weight: bold;
+    color: #737373; /* Initial color */
+    opacity: 0;
+    margin-top: 10px;
+    animation: fadeIn .5s ease 2s, 
+               littleWiggle 1s linear 2.5s, 
+               heartbeat 5s linear 10s infinite; /* Heartbeat starts after littleWiggle and loops infinitely */
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; color: #737373; }
+    100% { opacity: 1; color: white; } /* Change color to white */
+}
+
+@keyframes littleWiggle {
+    0%, 100% { transform: rotate(0deg); }
+    10% { transform: rotate(-10deg); }
+    20% { transform: rotate(10deg); }
+    30% { transform: rotate(-10deg); }
+    40% { transform: rotate(10deg); }
+    50% { transform: rotate(-10deg); }
+    60% { transform: rotate(0deg); }
+    100% { transform: rotate(0deg); }
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.1); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@media (max-width: 768px) { /* Adjust breakpoint as needed */
+    .navBar {
+        flex-direction: row; /* Stack items vertically on smaller screens */
+        align-items: stretch; /* Stretch items to fill the width */
+    }
+
+    .left, .right, .center {
+        justify-content: center; /* Align content to the start */
+        padding: 5px 0; /* Adjust padding for smaller screens */
+    }
+
+    .link {
+        font-size: 1em; /* Reduce font size for smaller screens */
+    }
+
+    .totalDonations {
+        font-size: 2em; /* Reduce font size for smaller screens */
+    }
+
+    .totalDonationsContainer {
+        font-size: 1em;
+    }
+
+}

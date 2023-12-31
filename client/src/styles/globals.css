@@ -1,0 +1,588 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color:#000000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+
+  h2 {
+    margin-bottom: 1rem;
+  }
+  
+  button {
+    padding: 0.25rem 1rem;
+    font-family: inherit;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button.primary {
+    background-color: var(--green);
+    color: white;
+  }
+  
+  .app {
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+  
+  header h1 {
+    font-size: 2.5em;
+    font-weight: 900;
+    text-align: center;
+    padding: 0.5rem 0;
+  }
+  
+  .logo {
+    font-size: 1.25em;
+    padding-left: 0.5rem;
+    color: transparent;
+    text-shadow: 0 0 0 var(--green);
+  }
+  
+  main {
+    padding: 0 1rem;
+  }
+  
+  .new-plant-form {
+    padding: 2rem 1rem;
+    margin: 2rem auto;
+    background-color: rgba(181, 250, 181, 0.5);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .new-donation-form:hover {
+    background-color: rgba(161, 230, 161, 0.7);
+  }
+  
+  .new-donation-form form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .new-donation-form input {
+    flex: 1 1 200px; /* Flex grow, flex shrink, flex basis */
+    padding: 0.5rem;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+  }
+  
+  .new-donation-form input:focus {
+    outline: none;
+    border-color: #4CAF50;
+  }
+  
+  .new-donation-form button {
+    width: 150px;
+    padding: 0.5rem 1rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .new-donation-form button:hover {
+    background-color: #367c36;
+  }
+
+  /* Style for the filter dropdown (adjust as needed) */
+.cause-filter {
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+}
+  
+  .searchbar {
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    width: 900px;
+    height: 40px;
+    font-style: oblique;
+    font-size: 13px;
+    z-index: 2; 
+  }
+  
+  .searchbar input, .searchbar select {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+  }
+  
+  .searchbar input:focus, .searchbar select:focus {
+    outline: none;
+  }
+  
+  .searchbar button {
+    padding: 0.5rem 1rem;
+    background-color: linear-gradient(135deg, rgba(0, 0, 0, 0), #9d8979);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .searchbar button:hover {
+    background-color: #9d8979;
+  }
+  
+  label {
+    font-weight: bold;
+    display: block;
+  }
+  
+  input {
+    padding: 0.25rem;
+    border: none;
+    font-family: inherit;
+    font-size: 1.2em;
+    border-bottom: 2px solid gray;
+    transition: all 0.2s;
+    width: 100%;
+  }
+  
+  input:focus {
+    outline: none;
+    border-bottom: 2px solid var(--green);
+  }
+  
+  .cards {
+    list-style: none;
+    margin: 0;
+    margin-top: 90px;
+    display: flex; /* Corrected to 'flex' */
+    overflow: auto; /* Enable horizontal scrolling */
+    scrollbar-width: thin; /* For browsers that support it */
+    scrollbar-color: #f0f0f0; /* Custom scrollbar colors */
+    z-index: 1; /* Ensure cards are above the background */
+  }
+
+  main {
+    height: 100vh; /* Adjust height as needed */
+    overflow-y: auto;
+  }
+  
+  
+  body {
+    background-image: url('/pexels-diva-plavalaguna-6147357.jpg');
+    background-size: cover; /* Cover the entire viewport */
+    background-attachment: fixed; /* Background doesn't move with scrolling */
+    background-position: center; /* Center the background image */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0; /* Added to stretch across the whole viewport */
+    bottom: 0; /* Added to stretch across the whole viewport */
+    z-index: -1; /* Behind everything else */
+    margin: 0; /* Remove default margin */
+  }
+  
+  .card {
+    position: relative;
+    margin: 4rem;
+    max-height: 500px; /* Set a maximum height */
+    background: linear-gradient(135deg, #898ea251, #26272b); /* Light gray background */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    overflow: hidden; /* Ensures content fits within rounded corners */
+    transition: transform 0.2s, box-shadow 0.2s; /* Smooth transitions for hover effects */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    height: 100%;
+  }
+  
+  
+  .card a {
+    text-decoration: none;
+    color: inherit;
+  }
+  .card:hover {
+    transform: scale(1.05); /* Slightly scale up on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Increase shadow on hover */
+  }
+  
+  .card img {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.2s; /* Smooth transition for hover effect */
+  }
+  
+  .card h4 {
+    color: #fffefe; /* Dark text for contrast */
+    padding: 0.5rem 1rem; /* Padding around title */
+    background-color: #1b1c1f;/* Funky yellow background for title */
+    margin: 0; /* Remove default margin */
+    text-align: center;
+    font-size: medium;
+  }
+  
+  .card p {
+    padding: 0rem 1rem;
+    background: #26272b4f;
+    color: white;
+    max-height: 0px; /* Initial maximum height */
+    overflow-y: scroll; /* Hide overflow initially */
+    font-size: auto;
+    transition: max-height 0.3s ease-in-out; /* Smooth transition for max-height */
+}
+
+.card:hover p {
+    max-height: 500px; /* New maximum height on hover */
+    overflow-y: scroll; /* Enable vertical scrolling on hover */
+}
+
+.card:hover {
+  max-height: 500px;
+  overflow-y: scroll;
+}
+
+  
+  .card button {
+    position: absolute;
+    text-decoration: none;
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    width: 100%;
+    padding: 1rem; /* Adjust this padding to center the text vertically */
+    background-color: #ea4c89;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+
+  .card button span {
+    margin-left: 5px;
+    margin-right: 25px; 
+    font-size: 1.5em; /* Increase the font size */
+    /* Add any additional styling needed for the text here */
+  }
+
+  .card button .icon {
+    margin-right: 1px; /* Add right margin to the icon */
+    /* other styles for the icon */
+  }
+  
+  @media (max-width: 600px) {
+    .card button {
+      padding: 1
+      rem 5%; /* Smaller padding for smaller screens */
+    }
+  }
+  
+  
+
+  .card button:hover {
+    background-color: #e8095e; /* Darker green on hover */
+  }
+  
+  @media (min-width: 768px) {
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around; /* Space cards evenly */
+    }
+  
+    .card {
+      width: calc(33% - 2rem);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .card {
+      width: calc(25% - 2rem);
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .card {
+      width: calc(20% - 2rem);
+    }
+  }
+
+  *,
+*::before,
+*::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary-bg: #171717;
+    --secondary-bg: #262626;
+    --accent-bg: #00aced;
+
+    --primary-color: #fff;
+    --secondary-color: rgba(255,255,255, 70%);
+    --accent-color: #ea4c89;
+
+    --border-color: rgba(255,255,255, 30%);
+    
+    --username-size: 32px;
+    --title-size: 28px;
+    --subtitle: 24px;
+}
+
+body {
+    /* background-image: url(/images/banner.jpg);
+    background-size: cover; */
+    background: black;
+}
+
+/* ---------- body element's */
+.container {
+    height: 100vh;
+    backdrop-filter: blur(20px);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-card {
+  width: clamp(428px, 990px, 990px);
+  height: auto; /* Adjusted to auto to accommodate content */
+  background-color: var(--primary-bg);
+  border-radius: 40px;
+  border: 2px solid var(--accent-bg);
+  display: grid;
+  grid-template-rows: auto auto; /* Adjusted for variable content height */
+  overflow: auto;
+  margin: 10px; /* Ensure consistent margin */
+  padding-bottom: 50px; /* Optional, for spacing at the bottom */
+  padding-top: 52px
+}
+/* ------ profile header section */
+.profile-header {
+    background: url('/images/banner.jpg') center;
+    background-size: cover;
+    margin-top: 30px;
+    border-radius: 30px 30px 0 0;
+    position: relative;
+}
+    .main-profile {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        inset: calc(100% - 75px) auto auto 70px;
+    }
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            background: url('/LOLO 3.30.13 AM.png') center;
+            background-size: cover;
+            border-radius: 50%;
+            border: 10px solid var(--primary-bg);
+        }
+        .profile-names {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: var(--primary-color);
+            background-color: var(--primary-bg);
+            padding: 10px 30px;
+            border-radius: 0 50px 50px 0;
+            transform: translateX(-10px);
+        }
+            .page-title {
+                color: var(--secondary-color);
+            }
+
+/* ------- profile body header */
+.profile-body {
+    display: grid;
+    grid-template-columns: 150px auto;
+    gap: 70px;
+    padding: 70px;
+}
+    .profile-actions {
+        display: grid;
+        grid-template-rows: repeat(2, max-content) auto;
+        gap: 10px;
+        margin-top: 30px;
+    }
+    .profile-actions button {
+        all: unset;
+        padding: 10px;
+        color: var(--primary-color);
+        border: 2px solid var(--accent-bg);
+        text-align: center;
+        border-radius: 10px;
+    }
+        .profile-actions .follow {background-color: var(--accent-bg)}
+    .bio {
+        color: var(--primary-color);
+        background-color: var(--secondary-bg);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+        border-radius: 10px;
+    }
+        .bio-header {
+            display: flex;
+            gap: 10px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--secondary-color);
+        }
+    .account-info {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 2fr 1fr;
+        gap: 20px;
+    }
+        .data {
+            grid-area: 1/1/2/3;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            color: var(--secondary-color);
+            padding: 30px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+        }
+            .important-data {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .other-data {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                background-color: var(--secondary-bg);
+                padding: 15px;
+                border-radius: 10px;
+            }
+            .data-item .value {
+                color: var(--accent-color);
+            }
+                .important-data .value {
+                    font-size: var(--title-size);
+                }
+                .other-data .value {
+                    font-size: var(--subtitle);
+                }
+        .social-media {
+            grid-area: 2/1/3/3;
+            background-color: var(--secondary-bg);
+            color: var(--secondary-color);
+            padding: 15px;
+            border-radius: 10px;
+
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+            .media-link {
+                text-decoration: none;
+                color: var(--accent-color);
+                font-size: var(--subtitle);
+            }
+        .last-post {
+            grid-area: 1/3/3/4;
+            border: 1px solid var(--border-color);
+            background-color: var(--secondary-bg);
+            border-radius: 10px;
+            padding: 10px;
+
+            display: grid;
+            grid-template-rows: 70% auto max-content;
+            gap: 10px;
+        }
+            .post-cover {
+                position: relative;
+                background: url('/images/last-post.jpg') center;
+                background-size: cover;
+                border-radius: 5px;
+            }
+                .last-badge {
+                    position: absolute;
+                    inset: 3px 3px auto auto;
+                    background-color: rgba(0,0,0, 70%);
+                    color: var(--primary-color);
+                    padding: 5px;
+                    border-radius: 3px;
+                }
+            .post-title {
+                color: var(--primary-color);
+                font-size: 18px;
+            }
+            .post-CTA {
+                all: unset;
+                text-align: center;
+                border: 1px solid var(--accent-color);
+                color: var(--accent-color);
+                border-radius: 5px;
+                padding: 5px;
+            }
+
+/* ------------ media queries */
+@media screen and (max-width: 950px) {
+    .last-post {
+        display: none;
+    }
+    .data, .social-media {
+        grid-column: 1/4;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .profile-card {
+        height: 100%;
+        border-radius: 0;
+    }
+        .profile-header {
+            border-radius: 0;
+        }
+            .main-profile {
+                inset: calc(100% - 75px) auto auto 50%;
+                transform: translateX(-50%);
+
+                flex-direction: column;
+                text-align: center;
+            }
+                .profile-names {transform: translateX(0)}
+        .profile-body {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+            .profile-actions {
+                grid-template-columns: repeat(2, 1fr);
+                margin-top: 90px;
+            }
+                .bio {grid-column: 1/3;}
+
+            .data {gap: 20px;}
+}
