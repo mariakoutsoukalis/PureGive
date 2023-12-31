@@ -1,3 +1,0 @@
-# AUTHORIZATION FOR USER REG: Separate function to process encription on user registration.
-# AUTHORIZATION FOR USER SIGNIN: Separate function to encrypt user-submitted password, then match against what's in database.
-# NOTE: Authorization function at any time calls an encryption function. 
