@@ -1,7 +1,11 @@
 # PureGive Prototype
 
 
-https://github.com/mariakoutsoukalis/PureGive/assets/147335262/0ec81e00-b8a8-4e6b-9ae6-62a715fdfd2a
+
+https://github.com/mariakoutsoukalis/PureGive/assets/147335262/710d4c1a-aabc-4dfa-b7a8-c62a752779ef
+
+
+
 
 
 
