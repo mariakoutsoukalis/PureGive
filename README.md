@@ -1,5 +1,7 @@
 # PureGive Prototype
-![ezgif com-gif-to-mp4-converted](https://github.com/mariakoutsoukalis/PureGive/assets/147335262/1c8db727-5f03-488b-b48f-6108259d3fb1)
+https://github.com/mariakoutsoukalis/PureGive/assets/147335262/39ab2240-6cc3-4426-9ae1-fe0a79ed42e6
+
+
 
 ## Introduction
 
